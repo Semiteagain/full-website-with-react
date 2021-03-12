@@ -1,10 +1,10 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
 function Product() {
     return (
         <div>
-            <h1>Hello World!</h1>
-            <p>Here is the product page</p>
+            <h1>Let build Multiple app with useEffect</h1>
+           
         </div>
     )
 }
