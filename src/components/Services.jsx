@@ -1,9 +1,31 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react';
+import axios from 'axios'
 
 function Services() {
+
+   const [list, setList] = useState([]);
+
+   useEffect(()=>{
+       axios.get('https://jsonplaceholder.typicode.com/posts')
+       .then(res =>{
+           setList(res.data)
+       })
+       .catch(myErr =>{
+           console.log(myErr)
+       })
+   },[])
+
+
+
+
     return (
         <div>
-            <h1>Here is the services page</h1>
+            {list.map(item =>{
+                return <div key={item.id}>
+                      <h2>{item.title}</h2>
+                      <h3>{item.body}</h3>
+                </div>
+            })}
         </div>
     )
 }
